@@ -1,14 +1,14 @@
 package LibraryActions;
 
-import utils.FileManager;
+import utils.LibraryFileManager;
 
 public class ExitBehaviour extends LibraryBehaviour {
 	
-	private FileManager fileManager;
+	private LibraryFileManager fileManager;
 
 	public ExitBehaviour() {
 		super();
-		fileManager = FileManager.getInstance();
+		fileManager = LibraryFileManager.getInstance();
 	}
 
 	@Override

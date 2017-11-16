@@ -1,35 +1,25 @@
 package app;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
-
-import Menu.AddBookMenuItem;
 import Menu.MenuItem;
 import Menu.NullMenuItem;
-import data.Book;
 import data.Library;
-import data.LibraryUser;
-import data.Periodical;
-import utils.DataReader;
-import utils.FileManager;
-import utils.LibraryUtils;
-import app.GetOptions;;
+import java.util.Scanner;
+import utils.LibraryFileManager;
 
 public class LibraryControl {
 
 	private static LibraryControl instance;
 
-	private DataReader dataReader;
-	private FileManager fileManager;
+	private LibraryFileManager fileManager;
 	
 	private Library library;
 	private GetOptions options;
+        
 	
 	private LibraryControl() {
-        dataReader = DataReader.getInstance();
-        fileManager = FileManager.getInstance();
+        fileManager = LibraryFileManager.getInstance();
         library = Library.getInstanceFromSaveFile();
         options = GetOptions.getInstance();
     }
@@ -45,7 +35,7 @@ public class LibraryControl {
         while (currentMenuItem.getIndex() != 0){
             try {
                 printOptions();
-                currentMenuItem = dataReader.getMenuItem();
+                currentMenuItem = getMenuItem();
                 currentMenuItem.OnSelected();
             } catch (InputMismatchException exception) {
                 System.out.println("Incorrect data entered, no publication added."+exception);
@@ -54,11 +44,38 @@ public class LibraryControl {
             }
         }
 
-        dataReader.close();
     }
 	
 	private void printOptions() {
         System.out.println("Select an option:  ");
         options.printOptions();
     }
+        
+    public int getInt() throws NumberFormatException {
+        
+            Scanner scanner;
+            scanner = new Scanner(System.in);
+        
+            int number = 0;
+            try {
+                number = scanner.nextInt();
+            } catch (InputMismatchException exception) {
+                throw new NumberFormatException("Number entered in incorrect form"+exception);
+            } finally {
+                scanner.nextLine();
+            }
+            return number;
+        }
+    
+    public MenuItem getMenuItem() throws NoSuchElementException{
+		   MenuItem result = null;
+		   try {
+               result = GetOptions.getInstance().getMenuItemAt(getInt());
+           } catch(ArrayIndexOutOfBoundsException exception) {
+               throw new NoSuchElementException("No element specified ID"+exception);
+           }
+		   return result;
+	    }
+    
+    
 }

@@ -33,7 +33,7 @@ public abstract class Publication implements Serializable, Comparable<Publicatio
         return date.getYear();
     }
 	
-	protected Publication(PublicationParameters parameters) {
+	protected Publication(InputData parameters) {
 		this.date = LocalDate.of(parameters.year, 1, 1);
 		this.title = parameters.title;
 		this.publisher = parameters.publisher;

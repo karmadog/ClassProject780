@@ -1,8 +1,7 @@
 package LibraryActions;
 
-import data.Library;
 import data.LibraryUser;
-import utils.DataReader;
+import utils.UserInputReader;
 
 public class AddUserBehaviour extends LibraryBehaviour {
 	
@@ -14,7 +13,7 @@ public class AddUserBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-		libraryUser = DataReader.getInstance().readAndCreateLibraryUser();
+		libraryUser = UserInputReader.getInstance().readAndCreateLibraryUser();
 		library.addUser(libraryUser);
 	}
 

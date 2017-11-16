@@ -3,12 +3,9 @@ package data;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-
-import utils.DataReader;
-import utils.FileManager;
+import utils.LibraryFileManager;
 
 public class Library implements Serializable {
 	private static final long serialVersionUID = 7346680215932771853L;
@@ -16,12 +13,12 @@ public class Library implements Serializable {
 	private Map<String, LibraryUser> users;
 	
 	private static Library instance;
-	private static FileManager fileManager;
+	private static LibraryFileManager fileManager;
 	
 	private Library() {
 		publications = new HashMap<>();
 		users = new HashMap<>();
-		fileManager = FileManager.getInstance();
+		fileManager = LibraryFileManager.getInstance();
 	}
 	
 	public static Library getInstance(){
@@ -33,7 +30,7 @@ public class Library implements Serializable {
 	public static Library getInstanceFromSaveFile(){
 		if(instance == null){
 			if(fileManager == null)
-				fileManager = FileManager.getInstance();
+				fileManager = LibraryFileManager.getInstance();
 			try {
 				instance = fileManager.readLibraryFromFile();
 				System.out.println("Data loaded from the file");

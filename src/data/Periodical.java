@@ -23,7 +23,7 @@ public class Periodical extends Publication {
 		this.language = language;
 	}
 	
-	public Periodical(PublicationParameters parameters){
+	public Periodical(InputData parameters){
 		super(parameters);
 		this.language = parameters.language;
         	setDate(LocalDate.of(parameters.year, parameters.month, parameters.day));

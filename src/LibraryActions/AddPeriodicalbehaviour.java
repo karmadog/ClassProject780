@@ -1,18 +1,32 @@
 package LibraryActions;
 
-import data.PublicationFactory;
+import data.PeriodicalFactory;
+
 
 public class AddPeriodicalbehaviour extends AddPublicationBehaviour {
+    public PeriodicalFactory factory;
 
+            
 	public AddPeriodicalbehaviour() {
 		super();
 	}
-
-	@Override
-	public void execute() {
-            factory = new PublicationFactory();
+        
+    @Override
+        void getFactory(){
+            factory = new PeriodicalFactory();
+        }
+        
+    @Override
+        void getParameters(){
             parameters = dataReader.getUserInputPeriodical();
-            library.addPublication(factory.getPublication("Periodical",parameters));
-	}
-
+        }
+            
+    /**
+     *
+     */
+    @Override
+        public void addToLibrary(){
+             library.addPublication(factory.getPublication(parameters));
+        }  
+    
 }

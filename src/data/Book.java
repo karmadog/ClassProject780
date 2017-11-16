@@ -30,7 +30,7 @@ public class Book extends Publication {
 		this.isbn = isbn;
 	}
 
-	public Book(PublicationParameters parameters) {
+	public Book(InputData parameters) {
 		super(parameters);
 		this.author = parameters.author;
 		this.pages = parameters.pages;

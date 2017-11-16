@@ -9,6 +9,11 @@ package data;
  *
  * @author karmadog
  */
-public abstract class PublicationFactory {
-    protected abstract Publication getPublication(InputData parameters);
+public class PeriodicalFactory extends PublicationFactory{
+    
+    @Override
+    public Publication getPublication(InputData parameters){
+        return new Periodical(parameters);
+    }
+    
 }

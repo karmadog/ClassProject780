@@ -6,6 +6,7 @@ import data.Book;
 import data.Library;
 import data.Periodical;
 import data.AlphabeticalComparator;
+import data.Article;
 
 public class LibraryUtils {
 
@@ -15,6 +16,10 @@ public class LibraryUtils {
      
     public static void printPeriodicals(Library library) {
     	printPublications(library, Periodical.class);
+    }
+    
+    public static void printArticles(Library library) {
+    	printPublications(library, Article.class);
     }
     
     private static void printPublications(Library library, Class<?> cl) {

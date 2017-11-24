@@ -9,6 +9,7 @@ public abstract class LibraryBehaviour {
 	public LibraryBehaviour(){
 		library = Library.getInstance();
 	}
+        
+        public abstract void execute();
 	
-	public abstract void execute();
 }

@@ -1,20 +1,33 @@
 package utils;
 
+import Factories.BookFactory;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import data.InputData;
+import data.Library;
+import Factories.PeriodicalFactory;
+import Factories.ArticleFactory;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 public class FileInputReader {
 
 	private static FileInputReader instance;
-	
+	private InputData parameters;
 	private final Scanner scanner;
-        
+        private Library library;
+        private BufferedReader reader;
+
         
 	private FileInputReader(){
 		scanner = new Scanner(System.in);
+                library = Library.getInstance();
+                parameters = new InputData();
+
 	}
 	
 	public static FileInputReader getInstance(){
@@ -27,70 +40,111 @@ public class FileInputReader {
 		scanner.close();
 	}
 	
-	public int getInt() throws NumberFormatException {
-            int number = 0;
-            try {
-                number = scanner.nextInt();
-            } catch (InputMismatchException exception) {
-                throw new NumberFormatException("Number entered in incorrect form"+exception);
-            } finally {
-                scanner.nextLine();
+        
+        public void addFile() throws FileNotFoundException, IOException{
+            
+            String fileName, line;
+            
+            System.out.println("Enter file name: ");
+            fileName = scanner.nextLine();
+            
+            reader = new BufferedReader(new FileReader(fileName));
+            
+            
+            while((line = reader.readLine())!= null){
+                
+                String publicationType = line;
+            
+                if(publicationType.equalsIgnoreCase("book")){
+                    getFileInputBook();
+                    BookFactory factory = new BookFactory();
+                    library.addPublication(factory.getPublication(parameters));
+                }
+                if(publicationType.equalsIgnoreCase("periodical")){
+                    getFileInputPeriodical();
+                    PeriodicalFactory factory = new PeriodicalFactory();
+                    library.addPublication(factory.getPublication(parameters));
+                }
+                if(publicationType.equalsIgnoreCase("article")){
+                    getFileInputArticle();
+                    ArticleFactory factory = new ArticleFactory();
+                    library.addPublication(factory.getPublication(parameters));
+                }
             }
-            return number;
+            
+            
         }
 	
-	public InputData getFileInputBook() throws InputMismatchException {
-            InputData parameters = new InputData();
-            System.out.println("Title: ");
-            parameters.title = scanner.nextLine();
-            System.out.println("Author: ");
-            parameters.author = scanner.nextLine();
-            System.out.println("Publishing house: ");
-            parameters.publisher = scanner.nextLine();
-            System.out.println("ISBN: ");
-            parameters.isbn = scanner.nextLine();
-            System.out.println("Publication year: ");
-            try {
-                parameters.year = scanner.nextInt();
-                scanner.nextLine();
-                System.out.println("Number of pages: ");
-                parameters.pages = scanner.nextInt();
-                scanner.nextLine();
+	private void getFileInputBook() throws InputMismatchException, IOException {
+            
+            String line;
+            parameters.year = 0;
+            
+            line = reader.readLine();
+            parameters.title = line;
+            line = reader.readLine();
+            parameters.author = line;
+            line = reader.readLine();
+            parameters.publisher = line;
+            line = reader.readLine();
+            parameters.isbn = line;
+            line = reader.readLine();
+            try{
+                parameters.year = Integer.parseInt(line.trim());
             } catch (InputMismatchException exception) {
-                scanner.nextLine();
-                throw exception;
-            }
- 
-            return parameters;
-        }
-	
-	public InputData getFileInputPeriodical() throws InputMismatchException {
-            InputData parameters = new InputData();
-        System.out.println("Title: ");
-        parameters.title = scanner.nextLine();
-        System.out.println("Publishing house: ");
-        parameters.publisher = scanner.nextLine();
-        System.out.println("Language: ");
-        parameters.language = scanner.nextLine();
-        System.out.println("Publication year: ");
-        parameters.year = 0;
-        parameters.month = 0;
-        parameters.day = 0;
-        try {
-            parameters.year = scanner.nextInt();
-            scanner.nextLine();
-            System.out.println("Publication Month: ");
-            parameters.month = scanner.nextInt();
-            scanner.nextLine();
-            System.out.println("Publication Day: ");
-            parameters.day = scanner.nextInt();
-            scanner.nextLine();
-        } catch (InputMismatchException exception) {
-            scanner.nextLine();
             throw exception;
+            }
+            line = reader.readLine();
+            parameters.pages = line;
         }
- 
-        return parameters;
-    }
 	
+	private void getFileInputPeriodical() throws InputMismatchException, IOException {
+            
+            String line;
+            
+            line = reader.readLine();
+            parameters.title = line;
+            line = reader.readLine();
+            parameters.publisher = line;
+            line = reader.readLine();
+            parameters.language = line;
+            line = reader.readLine();
+            parameters.year = 0;
+            parameters.month = 01;
+            parameters.day = 0;
+            try {
+                parameters.year = Integer.parseInt(line.trim());
+                line = reader.readLine();
+                parameters.month = Integer.parseInt(line.trim());
+                line = reader.readLine();
+                parameters.day = Integer.parseInt(line.trim());
+            } catch (InputMismatchException exception) {
+            throw exception;
+            }
+        }
+        
+        private void getFileInputArticle() throws InputMismatchException, IOException {
+            
+            String line;
+
+            parameters.year = 0;
+            parameters.volume = 0;
+            
+            line = reader.readLine();
+            parameters.author = line;
+            line = reader.readLine();
+            parameters.title = line;
+            line = reader.readLine();
+            parameters.journal = line;
+            line = reader.readLine();
+            try {
+                parameters.volume = Integer.parseInt(line.trim());
+                line = reader.readLine();
+                parameters.year = Integer.parseInt(line.trim());
+            } catch (InputMismatchException exception) {
+            throw exception;
+            }
+            line = reader.readLine();
+            parameters.pages = line;
+        }
 }

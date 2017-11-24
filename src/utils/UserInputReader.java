@@ -30,7 +30,9 @@ public class UserInputReader {
 	
 	
 	public InputData getUserInputBook() throws InputMismatchException {
+            
             InputData parameters = new InputData();
+            
             System.out.println("Title: ");
             parameters.title = scanner.nextLine();
             System.out.println("Author: ");
@@ -44,7 +46,7 @@ public class UserInputReader {
                 parameters.year = scanner.nextInt();
                 scanner.nextLine();
                 System.out.println("Number of pages: ");
-                parameters.pages = scanner.nextInt();
+                parameters.pages = scanner.nextLine();
                 scanner.nextLine();
             } catch (InputMismatchException exception) {
                 scanner.nextLine();

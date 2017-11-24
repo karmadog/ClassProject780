@@ -1,13 +1,13 @@
 package Menu;
 
-import LibraryActions.AddBookBehaviour;
+import LibraryActions.AddBookBehaviourUser;
 
 
 public class AddBookMenuItem extends MenuItem {
 
 	public AddBookMenuItem(int index, String description) {
 		super(index, description);
-		myBehaviour = new AddBookBehaviour();
+		myBehaviour = new AddBookBehaviourUser();
 	}
 
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 import Menu.MenuItem;
 import app.GetOptions;
 import data.LibraryUser;
-import data.PublicationParameters;
+import data.InputData;
 
 
 public class DataReader {
@@ -43,8 +43,8 @@ public class DataReader {
             return number;
         }
 	
-	public PublicationParameters getUserInputBook() throws InputMismatchException {
-            PublicationParameters parameters = new PublicationParameters();
+	public InputData getUserInputBook() throws InputMismatchException {
+            InputData parameters = new InputData();
             System.out.println("Title: ");
             parameters.title = scanner.nextLine();
             System.out.println("Author: ");
@@ -58,7 +58,7 @@ public class DataReader {
                 parameters.year = scanner.nextInt();
                 scanner.nextLine();
                 System.out.println("Number of pages: ");
-                parameters.pages = scanner.nextInt();
+                parameters.pages = scanner.nextLine();
                 scanner.nextLine();
             } catch (InputMismatchException exception) {
                 scanner.nextLine();
@@ -68,8 +68,8 @@ public class DataReader {
             return parameters;
         }
 	
-	public PublicationParameters getUserInputPeriodical() throws InputMismatchException {
-            PublicationParameters parameters = new PublicationParameters();
+	public InputData getUserInputPeriodical() throws InputMismatchException {
+            InputData parameters = new InputData();
         System.out.println("Title: ");
         parameters.title = scanner.nextLine();
         System.out.println("Publishing house: ");

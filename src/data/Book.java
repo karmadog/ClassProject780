@@ -3,7 +3,7 @@ package data;
 public class Book extends Publication {
 	private static final long serialVersionUID = -7907331751072277846L;
 	private String author;
-	private int pages;
+	private String pages;
 	private String isbn;
 	
 	public String getAuthor() {
@@ -14,11 +14,11 @@ public class Book extends Publication {
 		this.author = author;
 	}
 
-	public int getPages() {
+	public String getPages() {
 		return pages;
 	}
 
-	public void setPages(int pages) {
+	public void setPages(String pages) {
 		this.pages = pages;
 	}
 
@@ -60,7 +60,6 @@ public class Book extends Publication {
 		int result = super.hashCode();
 		result = prime * result + ((author == null) ? 0 : author.hashCode());
 		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
-		result = prime * result + pages;
 		return result;
 	}
 

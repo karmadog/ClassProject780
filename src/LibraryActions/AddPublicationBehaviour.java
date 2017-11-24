@@ -1,10 +1,12 @@
 package LibraryActions;
 
 import data.InputData;
+import utils.DataReader;
 
 public abstract class AddPublicationBehaviour extends LibraryBehaviour {
 	
     public InputData parameters;
+    public DataReader dataReader;
 
     public AddPublicationBehaviour(){
         super();	

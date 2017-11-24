@@ -1,6 +1,7 @@
 package LibraryActions;
 
 import data.PeriodicalFactory;
+import utils.DataReader;
 
 
 public class AddPeriodicalbehaviour extends AddPublicationBehaviour {
@@ -19,6 +20,11 @@ public class AddPeriodicalbehaviour extends AddPublicationBehaviour {
     @Override
         void getParameters(){
             parameters = dataReader.getUserInputPeriodical();
+        }
+        
+    @Override
+        void getDataReader(){
+            dataReader = DataReader.getInstance();
         }
             
     /**

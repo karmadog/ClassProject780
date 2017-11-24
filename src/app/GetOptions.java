@@ -7,6 +7,7 @@ package app;
 
 import java.util.ArrayList;
 import Menu.AddBookMenuItem;
+import Menu.AddFileMenuItem;
 import Menu.AddPeriodicalMenuItem;
 import Menu.AddUserMenuItem;
 import Menu.ExitMenuItem;
@@ -14,6 +15,7 @@ import Menu.MenuItem;
 import Menu.PrintBookMenuItem;
 import Menu.PrintPeriodicalMenuItem;
 import Menu.PrintUserMenuItem;
+import Menu.PrintArticleMenuItem;
 
 /**
  *
@@ -34,11 +36,13 @@ public class GetOptions {
 	private GetOptions(){
 		menuItems.add(new ExitMenuItem(0, "Exit program"));
 		menuItems.add(new AddBookMenuItem(1, "Add a book"));
-		menuItems.add(new AddPeriodicalMenuItem(2, "Adding a magazine / newspaper"));
+		menuItems.add(new AddPeriodicalMenuItem(2, "Add a magazine / newspaper"));
 		menuItems.add(new PrintBookMenuItem(3, "View available books"));
-		menuItems.add(new PrintPeriodicalMenuItem(4, "Display of available magazines / newspapers"));
-		menuItems.add(new AddUserMenuItem(5, "Add a new user"));
-		menuItems.add(new PrintUserMenuItem(6, "Display the list of users"));
+		menuItems.add(new PrintPeriodicalMenuItem(4, "View available magazines / newspapers"));
+                menuItems.add(new PrintArticleMenuItem(5, "View of available articles"));
+		menuItems.add(new AddUserMenuItem(6, "Add a new user"));
+		menuItems.add(new PrintUserMenuItem(7, "View the list of users"));
+                menuItems.add(new AddFileMenuItem(8, "Read file as inventory input"));
 	}
     
      public MenuItem getMenuItemAt(int index){

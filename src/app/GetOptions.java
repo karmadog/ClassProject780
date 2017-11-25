@@ -41,10 +41,10 @@ public class GetOptions {
                 menuItems.add(new AddArticleMenuItem(3, "Add an article"));
 		menuItems.add(new PrintBookMenuItem(4, "View available books"));
 		menuItems.add(new PrintPeriodicalMenuItem(5, "View available magazines / newspapers"));
-                menuItems.add(new PrintArticleMenuItem(6, "View of available articles"));
+                menuItems.add(new PrintArticleMenuItem(6, "View available articles"));
 		menuItems.add(new AddUserMenuItem(7, "Add a new user"));
 		menuItems.add(new PrintUserMenuItem(8, "View the list of users"));
-                menuItems.add(new AddFileMenuItem(9, "Read file as inventory input"));
+                menuItems.add(new AddFileMenuItem(9, "Upload inventory file"));
 	}
     
      public MenuItem getMenuItemAt(int index){

@@ -17,7 +17,7 @@ public class AddBookBehaviourUser extends AddPublicationBehaviourUser {
         
     @Override
     void getParameters(){
-        parameters = dataReader.getUserInputBook();
+        parameters = userInputReader.getUserInputBook();
     }
     
     @Override

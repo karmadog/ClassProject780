@@ -17,7 +17,7 @@ public class AddPeriodicalBehaviourUser extends AddPublicationBehaviourUser {
         
     @Override
     void getParameters(){
-        parameters = dataReader.getUserInputPeriodical();
+        parameters = userInputReader.getUserInputPeriodical();
     }
             
     @Override

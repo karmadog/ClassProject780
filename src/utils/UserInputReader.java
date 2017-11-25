@@ -61,13 +61,18 @@ public class UserInputReader {
         }
 	
 	public InputData getUserInputPeriodical() throws InputMismatchException {
-            InputData parameters = new InputData();
+		
+        InputData parameters = new InputData();
+		
         System.out.println("Title: ");
         parameters.title = scanner.nextLine();
+		
         System.out.println("Publishing house: ");
         parameters.publisher = scanner.nextLine();
+		
         System.out.println("Language: ");
         parameters.language = scanner.nextLine();
+		
         System.out.println("Publication year: ");
         parameters.year = 0;
         parameters.month = 0;
@@ -115,6 +120,9 @@ public class UserInputReader {
             scanner.nextLine();
             throw exception;
         }
+	
+	System.out.println("Pages: ");
+        parameters.pages = scanner.nextLine();
  
         return parameters;
     }

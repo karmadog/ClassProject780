@@ -5,7 +5,7 @@ import utils.UserInputReader;
 
 public abstract class AddPublicationBehaviourUser extends LibraryBehaviour {
 
-    public UserInputReader dataReader;
+    public UserInputReader userInputReader;
     public InputData parameters;
      
     public AddPublicationBehaviourUser(){
@@ -21,7 +21,7 @@ public abstract class AddPublicationBehaviourUser extends LibraryBehaviour {
     }
         
     void getDataReader(){
-        dataReader = UserInputReader.getInstance();
+        userInputReader = UserInputReader.getInstance();
     }
     
     abstract void getFactory();

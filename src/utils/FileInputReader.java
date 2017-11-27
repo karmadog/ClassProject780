@@ -57,22 +57,18 @@ public class FileInputReader {
             
                 if(publicationType.equalsIgnoreCase("book")){
                     getFileInputBook();
-                    BookFactory factory = new BookFactory();
-                    library.addPublication(factory.getPublication(parameters));
+                    BookFactory factory = new BookFactory();  
                 }
                 if(publicationType.equalsIgnoreCase("periodical")){
                     getFileInputPeriodical();
                     PeriodicalFactory factory = new PeriodicalFactory();
-                    library.addPublication(factory.getPublication(parameters));
                 }
                 if(publicationType.equalsIgnoreCase("article")){
                     getFileInputArticle();
                     ArticleFactory factory = new ArticleFactory();
-                    library.addPublication(factory.getPublication(parameters));
                 }
+		library.addPublication(factory.getPublication(parameters));
             }
-            
-            
         }
 	
 	private void getFileInputBook() throws InputMismatchException, IOException {

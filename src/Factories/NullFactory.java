@@ -15,8 +15,6 @@ import data.Publication;
  */
 public class NullFactory extends PublicationFactory {
     
-    InputData parameters = new InputData();
-    
     boolean isNull(){
         return true;
     }

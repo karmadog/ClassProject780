@@ -62,15 +62,16 @@ public class FileInputReader {
                     getFileInputBook();
                     factory = new BookFactory();  
                 }
-                if(publicationType.equalsIgnoreCase("periodical")){
+                else if(publicationType.equalsIgnoreCase("periodical")){
                     getFileInputPeriodical();
                     factory = new PeriodicalFactory();
                 }
-                if(publicationType.equalsIgnoreCase("article")){
+                else if(publicationType.equalsIgnoreCase("article")){
                     getFileInputArticle();
                     factory = new ArticleFactory();
                 }
-                factory = new NullFactory();
+                else
+                    factory = new NullFactory();
                 
 		library.addPublication(factory.getPublication(parameters));
             }

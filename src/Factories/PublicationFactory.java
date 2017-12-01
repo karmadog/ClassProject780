@@ -13,5 +13,5 @@ import data.Publication;
  * @author karmadog
  */
 public abstract class PublicationFactory {
-    protected abstract Publication getPublication(InputData parameters);
+    public abstract Publication getPublication(InputData parameters);
 }

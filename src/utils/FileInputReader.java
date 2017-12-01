@@ -8,6 +8,8 @@ import data.InputData;
 import data.Library;
 import Factories.PeriodicalFactory;
 import Factories.ArticleFactory;
+import Factories.NullFactory;
+import Factories.PublicationFactory;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -54,19 +56,22 @@ public class FileInputReader {
             while((line = reader.readLine())!= null){
                 
                 String publicationType = line;
+                PublicationFactory factory;
             
                 if(publicationType.equalsIgnoreCase("book")){
                     getFileInputBook();
-                    BookFactory factory = new BookFactory();  
+                    factory = new BookFactory();  
                 }
                 if(publicationType.equalsIgnoreCase("periodical")){
                     getFileInputPeriodical();
-                    PeriodicalFactory factory = new PeriodicalFactory();
+                    factory = new PeriodicalFactory();
                 }
                 if(publicationType.equalsIgnoreCase("article")){
                     getFileInputArticle();
-                    ArticleFactory factory = new ArticleFactory();
+                    factory = new ArticleFactory();
                 }
+                factory = new NullFactory();
+                
 		library.addPublication(factory.getPublication(parameters));
             }
         }

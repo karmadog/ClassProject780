@@ -3,15 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Factories;
-
-import data.InputData;
-import data.Publication;
+package data;
 
 /**
  *
  * @author karmadog
  */
-public abstract class PublicationFactory {
-    public abstract Publication getPublication(InputData parameters);
+public class NullPublication extends Publication{
+    
+    public NullPublication(InputData parameters) {
+        super(parameters);
+    }
+    
+    
+    
 }

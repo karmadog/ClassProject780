@@ -1,23 +1,23 @@
 package LibraryActions;
 
-import Factories.BookFactory;
+import Factories.ArticleFactory;
 
-public class AddBookBehaviourUser extends AddPublicationBehaviourUser {
+public class AddArticleBehaviourUser extends AddPublicationBehaviourUser {
     
-    public BookFactory factory;
+    public ArticleFactory factory;
         
-    public AddBookBehaviourUser() {
+    public AddArticleBehaviourUser() {
 	super();
     }
           
     @Override
     void getFactory(){
-        factory = new BookFactory();
+        factory = new ArticleFactory();
     }
         
     @Override
     void getParameters(){
-        parameters = userInputReader.getUserInputBook();
+        parameters = userInputReader.getUserInputArticle();
     }
     
     @Override

@@ -86,6 +86,3 @@ public class Library implements Serializable {
         }
 	
 }
-
-// Extract Refactoring from library class
-// AlphabeticalCOmparator and DateComparator are moved out of this class seperately to remove noise

@@ -2,8 +2,6 @@ package utils;
 
 import Factories.BookFactory;
 import java.util.InputMismatchException;
-import java.util.Scanner;
-
 import data.InputData;
 import data.Library;
 import Factories.PeriodicalFactory;
@@ -14,22 +12,21 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
-public class FileInputReader {
+public class FileInputReader extends JFrame{
 
 	private static FileInputReader instance;
-	private InputData parameters;
-	private final Scanner scanner;
-        private Library library;
+	private final InputData parameters;
+        private final Library library;
         private BufferedReader reader;
 
         
 	private FileInputReader(){
-		scanner = new Scanner(System.in);
                 library = Library.getInstance();
                 parameters = new InputData();
-
 	}
 	
 	public static FileInputReader getInstance(){
@@ -38,17 +35,12 @@ public class FileInputReader {
 		return instance;
 	}
 	
-	public void close(){
-		scanner.close();
-	}
-	
         
         public void addFile() throws FileNotFoundException, IOException{
             
             String fileName, line;
             
-            System.out.println("Enter file name: ");
-            fileName = scanner.nextLine();
+            fileName = JOptionPane.showInputDialog("Enter File Name: ");
             
             reader = new BufferedReader(new FileReader(fileName));
             

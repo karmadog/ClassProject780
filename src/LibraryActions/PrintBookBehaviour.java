@@ -1,6 +1,6 @@
 package LibraryActions;
 
-import utils.LibraryUtils;
+import View.BookDisplay;
 
 public class PrintBookBehaviour extends LibraryBehaviour {
 
@@ -10,7 +10,7 @@ public class PrintBookBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-		LibraryUtils.printBooks(library);
+		BookDisplay bookDisplay = new BookDisplay(library);
 	}
 
 }

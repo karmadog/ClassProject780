@@ -1,6 +1,6 @@
 package LibraryActions;
 
-import utils.LibraryUtils;
+import View.PeriodicalDisplay;
 
 public class PrintPeriodicalBehaviour extends LibraryBehaviour {
 
@@ -10,7 +10,7 @@ public class PrintPeriodicalBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-		LibraryUtils.printPeriodicals(library);
+		PeriodicalDisplay periodicalDisplay = new PeriodicalDisplay(library);
 	}
 
 }

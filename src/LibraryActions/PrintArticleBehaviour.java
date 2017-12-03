@@ -1,6 +1,7 @@
 package LibraryActions;
 
-import utils.LibraryUtils;
+import View.ArticleDisplay;
+
 
 public class PrintArticleBehaviour extends LibraryBehaviour {
 
@@ -10,7 +11,7 @@ public class PrintArticleBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-		LibraryUtils.printArticles(library);
+		ArticleDisplay articleDisplay = new ArticleDisplay(library);
 	}
 
 }

@@ -10,7 +10,7 @@ public class PrintPeriodicalBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-		PeriodicalDisplay periodicalDisplay = new PeriodicalDisplay(library);
+		new PeriodicalDisplay(library);
 	}
 
 }

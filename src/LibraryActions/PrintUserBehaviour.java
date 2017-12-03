@@ -10,7 +10,7 @@ public class PrintUserBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-            UserDisplay userDisplay = new UserDisplay(library);
+            new UserDisplay(library);
 	}
 
 }

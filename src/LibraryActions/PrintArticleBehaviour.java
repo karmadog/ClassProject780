@@ -11,7 +11,7 @@ public class PrintArticleBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-		ArticleDisplay articleDisplay = new ArticleDisplay(library);
+		new ArticleDisplay(library);
 	}
 
 }

@@ -10,7 +10,7 @@ public class PrintBookBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-		BookDisplay bookDisplay = new BookDisplay(library);
+		new BookDisplay(library);
 	}
 
 }

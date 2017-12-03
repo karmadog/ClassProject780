@@ -32,6 +32,8 @@ public class ViewInventory extends Menu {
     
     public ViewInventory(){
         
+        
+        
         book = new JButton("VIEW BOOK INVENTORY");
         bookHandler = new BookHandler();
         book.addActionListener(bookHandler);
@@ -49,7 +51,7 @@ public class ViewInventory extends Menu {
         exit.addActionListener(exitHandler);
         
         Container pane = getContentPane();
-        pane.setLayout(new GridLayout(4,1));
+        pane.setLayout(new GridLayout(5,1));
         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(screenSize.width, screenSize.height);

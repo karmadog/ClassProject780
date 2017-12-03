@@ -20,6 +20,7 @@ import javax.swing.JFrame;
 public abstract class Menu extends JFrame{
     
     protected LibraryBehaviour myBehaviour;
+    protected InventoryDisplay inventoryDisplay;
     
     
     

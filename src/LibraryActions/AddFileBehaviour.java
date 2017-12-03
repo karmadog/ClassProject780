@@ -5,11 +5,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.FileInputReader;
 
-public class AddPublicationBehaviourFile extends LibraryBehaviour {
+public class AddFileBehaviour extends LibraryBehaviour {
 
     public FileInputReader dataReader;
      
-    public AddPublicationBehaviourFile(){
+    public AddFileBehaviour(){
     }
     
     @Override
@@ -18,7 +18,7 @@ public class AddPublicationBehaviourFile extends LibraryBehaviour {
         try {
             dataReader.addFile();
         } catch (IOException ex) {
-            Logger.getLogger(AddPublicationBehaviourFile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddFileBehaviour.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
         

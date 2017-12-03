@@ -1,11 +1,9 @@
 package LibraryActions;
 
+import View.AddUser;
 import data.LibraryUser;
-import utils.UserInputReader;
 
 public class AddUserBehaviour extends LibraryBehaviour {
-	
-	private LibraryUser libraryUser;
 	
 	public AddUserBehaviour(){
 		super();
@@ -13,8 +11,7 @@ public class AddUserBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-		libraryUser = UserInputReader.getInstance().readAndCreateLibraryUser();
-		library.addUser(libraryUser);
+            new AddUser();            
 	}
 
 }

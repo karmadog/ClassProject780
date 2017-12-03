@@ -5,7 +5,8 @@
  */
 package View;
 
-import LibraryActions.ExitBehaviour;
+import LibraryActions.AddUserBehaviour;
+import LibraryActions.PrintUserBehaviour;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -19,76 +20,66 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  *
  * @author karma
  */
-public class Welcome extends Menu {
+public class Manage extends Menu {
     
-    private final JButton view, add, manage, exit;
+    private final JButton viewUsers, addUser, exit;
     
     private final ViewHandler viewHandler;
     private final AddHandler addHandler;
-    private final ManageHandler manageHandler;
     private final ExitHandler exitHandler;
     
-    public Welcome(){
+    public Manage(){
         
-        view = new JButton("VIEW LIBRARY INVENTORY");
+        viewUsers = new JButton("VIEW ALL USERS");
         viewHandler = new ViewHandler();
-        view.addActionListener(viewHandler);
+        viewUsers.addActionListener(viewHandler);
         
-        add = new JButton("ADD NEW INVENTORY");
+        addUser = new JButton("ADD A USER TO THE LIBRARY");
         addHandler = new AddHandler();
-        add.addActionListener(addHandler);
+        addUser.addActionListener(addHandler);
         
-        manage = new JButton("MANAGE LIBRARY");
-        manageHandler = new ManageHandler();
-        manage.addActionListener(manageHandler);
-        
-        exit = new JButton("EXIT PROGRAM");
+        exit = new JButton("RETURN TO MAIN MENU");
         exitHandler = new ExitHandler();
         exit.addActionListener(exitHandler);
         
         Container pane = getContentPane();
-        pane.setLayout(new GridLayout(4,1));
+        pane.setLayout(new GridLayout(3,1));
         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(screenSize.width, screenSize.height);
         
-        add(view);
-        add(add);
-        add(manage);
+        add(viewUsers);
+        add(addUser);
         add(exit);
         
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
+
     
     private class ViewHandler implements ActionListener{
 
-        public void actionPerformed(ActionEvent e) {  
-            new View();
+        public void actionPerformed(ActionEvent e) {
+            myBehaviour = new PrintUserBehaviour();
+            myBehaviour.execute();
         }
     }
 
     private class AddHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
-            new Add();  
-        }
-    }
-
-    private class ManageHandler implements ActionListener{
-        
-        public void actionPerformed(ActionEvent e) {
-            new Manage();
+            myBehaviour = new AddUserBehaviour();
+            myBehaviour.execute();
         }
     }
 
     private class ExitHandler implements ActionListener{
 
         @Override
-        public void actionPerformed(ActionEvent e) {         
-            myBehaviour = new ExitBehaviour();
-            myBehaviour.execute();
-            System.exit(0);     
+        public void actionPerformed(ActionEvent e) {
+            
+            dispose();
+      
         }
     }
 }

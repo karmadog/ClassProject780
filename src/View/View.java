@@ -5,6 +5,7 @@
  */
 package View;
 
+import LibraryActions.LibraryBehaviour;
 import LibraryActions.PrintArticleBehaviour;
 import LibraryActions.PrintBookBehaviour;
 import LibraryActions.PrintPeriodicalBehaviour;
@@ -21,7 +22,9 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  *
  * @author karma
  */
-public class ViewInventory extends Menu {
+public class View extends Menu {
+    
+
     
     private final JButton book, article, periodical, exit;
     
@@ -30,7 +33,7 @@ public class ViewInventory extends Menu {
     private final PeriodicalHandler periodicalHandler;
     private final ExitHandler exitHandler;
     
-    public ViewInventory(){
+    public View(){
         
         book = new JButton("VIEW BOOK INVENTORY");
         bookHandler = new BookHandler();

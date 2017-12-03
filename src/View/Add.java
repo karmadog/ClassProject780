@@ -5,10 +5,10 @@
  */
 package View;
 
-import LibraryActions.AddArticleBehaviourUser;
-import LibraryActions.AddBookBehaviourUser;
-import LibraryActions.AddPeriodicalBehaviourUser;
-import LibraryActions.AddPublicationBehaviourFile;
+import LibraryActions.AddArticleBehaviour;
+import LibraryActions.AddBookBehaviour;
+import LibraryActions.AddPeriodicalBehaviour;
+import LibraryActions.AddFileBehaviour;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -22,7 +22,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  *
  * @author karma
  */
-public class AddInventory extends Menu {
+public class Add extends Menu {
     
     private final JButton book, article, periodical, file, exit;
     
@@ -32,7 +32,7 @@ public class AddInventory extends Menu {
     private final FileHandler fileHandler;
     private final ExitHandler exitHandler;
     
-    public AddInventory(){
+    public Add(){
         
         book = new JButton("ADD A BOOK TO INVENTORY");
         bookHandler = new BookHandler();
@@ -74,7 +74,7 @@ public class AddInventory extends Menu {
     private class BookHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
-            myBehaviour = new AddBookBehaviourUser();
+            myBehaviour = new AddBookBehaviour();
             myBehaviour.execute();
         }
     }
@@ -82,7 +82,7 @@ public class AddInventory extends Menu {
     private class ArticlHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
-            myBehaviour = new AddArticleBehaviourUser();
+            myBehaviour = new AddArticleBehaviour();
             myBehaviour.execute();
         }
     }
@@ -90,7 +90,7 @@ public class AddInventory extends Menu {
     private class PeriodicalHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
-            myBehaviour = new AddPeriodicalBehaviourUser();
+            myBehaviour = new AddPeriodicalBehaviour();
             myBehaviour.execute();
         }
     }
@@ -98,7 +98,7 @@ public class AddInventory extends Menu {
     private class FileHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
-            myBehaviour = new AddPublicationBehaviourFile();
+            myBehaviour = new AddFileBehaviour();
             myBehaviour.execute();
         }
     }

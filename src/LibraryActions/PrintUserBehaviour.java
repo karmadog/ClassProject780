@@ -1,6 +1,6 @@
 package LibraryActions;
 
-import utils.LibraryUtils;
+import View.UserDisplay;
 
 public class PrintUserBehaviour extends LibraryBehaviour {
 	
@@ -10,7 +10,7 @@ public class PrintUserBehaviour extends LibraryBehaviour {
 
 	@Override
 	public void execute() {
-		LibraryUtils.printUsers(library);
+            new UserDisplay(library);
 	}
 
 }

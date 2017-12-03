@@ -5,12 +5,9 @@
  */
 package View;
 
-
 import LibraryActions.LibraryBehaviour;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import data.Library;
+import data.LibraryUser;
 import javax.swing.JFrame;
 
 /**
@@ -20,39 +17,13 @@ import javax.swing.JFrame;
 public abstract class Menu extends JFrame{
     
     protected LibraryBehaviour myBehaviour;
-    
-    
-    
+    protected Library library;
+    protected LibraryUser libraryUser;
+
     public Menu(){
         
         setTitle("Library System version-2.0");
-        
-        
-        
-    }
-
-    protected class ViewHandler implements ActionListener{
-
-        public void actionPerformed(ActionEvent e) {
-        }
-    }
-
-    protected class AddHandler implements ActionListener{
-
-        public void actionPerformed(ActionEvent e) {
-        }
-    }
-
-    protected class ManageHandler implements ActionListener{
-
-        public void actionPerformed(ActionEvent e) {
-        }
-    }
-
-    protected class ExitHandler implements ActionListener{
-
-        public void actionPerformed(ActionEvent e) {
-        }
+ 
     }
     
 }

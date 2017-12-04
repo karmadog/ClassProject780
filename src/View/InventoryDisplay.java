@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import data.AlphabeticalComparator;
@@ -22,7 +17,8 @@ public abstract class InventoryDisplay extends Menu{
     	long countPublications = library.getPublications().values().stream()
     			.filter(cl::isInstance).sorted(new AlphabeticalComparator())
     			.peek(System.out::println).count();
-    	if(countPublications == 0) {
+    	if(countPublications == 0) 
+        {
     		System.out.println("No type publication was found in the library: " + cl.getSimpleName());
     	}
     }
@@ -32,12 +28,7 @@ public abstract class InventoryDisplay extends Menu{
     	.sorted((a,b) -> a.getLastName().compareTo(b.getLastName()))
     	.forEach(System.out::println);
     }
-    
-     /**
- * This class extends from OutputStream to redirect output to a JTextArrea
- * @author www.codejava.net
- *
- */
+ 
     protected class CustomOutputStream extends OutputStream {
         private final JTextArea textArea;
      
@@ -47,9 +38,9 @@ public abstract class InventoryDisplay extends Menu{
      
         @Override
         public void write(int b) throws IOException {
-        // redirects data to the text area
+       
             textArea.append(String.valueOf((char)b));
-        // scrolls the text area to the end of data
+        
             textArea.setCaretPosition(textArea.getDocument().getLength());
         }
     }

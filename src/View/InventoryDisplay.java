@@ -6,10 +6,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author karma
- */
 public abstract class InventoryDisplay extends Menu{
 
     
@@ -28,7 +24,7 @@ public abstract class InventoryDisplay extends Menu{
     	.sorted((a,b) -> a.getLastName().compareTo(b.getLastName()))
     	.forEach(System.out::println);
     }
- 
+
     protected class CustomOutputStream extends OutputStream {
         private final JTextArea textArea;
      
@@ -38,7 +34,7 @@ public abstract class InventoryDisplay extends Menu{
      
         @Override
         public void write(int b) throws IOException {
-       
+
             textArea.append(String.valueOf((char)b));
         
             textArea.setCaretPosition(textArea.getDocument().getLength());

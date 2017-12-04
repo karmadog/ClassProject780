@@ -44,8 +44,8 @@ public class LibraryUser extends User {
         int result = super.hashCode();
         result = prime * result
                 + ((borrowedPublications == null) ? 0 : borrowedPublications.hashCode());
-        result = prime * result
-                + ((publicationHistory == null) ? 0 : publicationHistory.hashCode());
+        /*result = prime * result
+                + ((publicationHistory == null) ? 0 : publicationHistory.hashCode());*/
         return result;
     }
  
@@ -58,16 +58,12 @@ public class LibraryUser extends User {
         if (getClass() != obj.getClass())
             return false;
         LibraryUser other = (LibraryUser) obj;
-        if (borrowedPublications == null) {
-            if (other.borrowedPublications != null)
-                return false;
-        } else if (!borrowedPublications.equals(other.borrowedPublications))
+        if (borrowedPublications == null && other.borrowedPublications != null)
             return false;
-        if (publicationHistory == null) {
-            if (other.publicationHistory != null)
-                return false;
-        } else if (!publicationHistory.equals(other.publicationHistory))
+        if (!borrowedPublications.equals(other.borrowedPublications))
             return false;
+        if (publicationHistory == null && other.publicationHistory != null)
+                return false;
         return true;
     }
 }

@@ -72,14 +72,18 @@ public class Library implements Serializable {
         	publications.remove(pub.getTitle());
         }
     }
-	
-        @Override
-	public String toString(){
+	 @Override
+        public String toString(){
 		StringBuilder builder = new StringBuilder();
-        for(Publication p: publications.values()) {
-            builder.append(p);
-            builder.append("\n");
-        }
+                publications.values().stream().map((p) -> {
+                    builder.append(p);
+                return p;
+            }).forEachOrdered(new Consumer<Publication>() {
+                    @Override
+                    public void accept(Publication _item) {
+                        builder.append("\n");
+                    }
+                });
         return builder.toString();
         }
 	

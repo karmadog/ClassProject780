@@ -44,8 +44,7 @@ public class LibraryUser extends User {
         int result = super.hashCode();
         result = prime * result
                 + ((borrowedPublications == null) ? 0 : borrowedPublications.hashCode());
-        /*result = prime * result
-                + ((publicationHistory == null) ? 0 : publicationHistory.hashCode());*/
+     
         return result;
     }
  

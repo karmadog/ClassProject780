@@ -75,15 +75,15 @@ public class Book extends Publication {
 		if (author == null) {
 			if (other.author != null)
 				return false;
-		} else if (!author.equals(other.author))
+		} 
+                if (!author.equals(other.author))
 			return false;
-		if (isbn == null) {
-			if (other.isbn != null)
+		if (isbn == null && other.isbn != null )
 				return false;
-		} else if (!isbn.equals(other.isbn))
+		
+                if (!isbn.equals(other.isbn))
 			return false;
-		if (pages != other.pages)
-			return false;
-		return true;
+                
+		return pages == other.pages;
 	}
 }

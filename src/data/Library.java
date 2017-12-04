@@ -9,8 +9,8 @@ import utils.LibraryFileManager;
 
 public class Library implements Serializable {
 	private static final long serialVersionUID = 7346680215932771853L;
-	private Map<String, Publication> publications;
-	private Map<String, LibraryUser> users;
+	private final Map<String, Publication> publications;
+	private final Map<String, LibraryUser> users;
 	
 	private static Library instance;
 	private static LibraryFileManager fileManager;

@@ -28,6 +28,7 @@ public class Library implements Serializable {
 	}
 	
 	public static Library getInstanceFromSaveFile(){
+		public static Library getInstanceFromSaveFile(){
 		if(instance == null){
 			if(fileManager == null)
 				fileManager = LibraryFileManager.getInstance();
@@ -37,10 +38,7 @@ public class Library implements Serializable {
 			} catch (FileNotFoundException e) {
 				instance = getInstance();
 				System.out.println("New library database created.");
-			} catch (ClassNotFoundException e) {
-				instance = getInstance();
-				System.out.println("New library database created.");
-			} catch (IOException e) {
+			} catch (ClassNotFoundException | IOException e) {
 				instance = getInstance();
 				System.out.println("New library database created.");
 			}

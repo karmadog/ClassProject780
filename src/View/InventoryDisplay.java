@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import data.AlphabeticalComparator;
@@ -11,10 +6,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author karma
- */
 public abstract class InventoryDisplay extends Menu{
 
     
@@ -32,12 +23,6 @@ public abstract class InventoryDisplay extends Menu{
     	.sorted((a,b) -> a.getLastName().compareTo(b.getLastName()))
     	.forEach(System.out::println);
     }
-    
-     /**
- * This class extends from OutputStream to redirect output to a JTextArrea
- * @author www.codejava.net
- *
- */
     protected class CustomOutputStream extends OutputStream {
         private final JTextArea textArea;
      
@@ -47,9 +32,9 @@ public abstract class InventoryDisplay extends Menu{
      
         @Override
         public void write(int b) throws IOException {
-        // redirects data to the text area
+        
             textArea.append(String.valueOf((char)b));
-        // scrolls the text area to the end of data
+        
             textArea.setCaretPosition(textArea.getDocument().getLength());
         }
     }

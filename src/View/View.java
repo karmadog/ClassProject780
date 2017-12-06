@@ -26,11 +26,12 @@ public class View extends Menu {
     
 
     
-    private final JButton book, article, periodical, exit;
+    private final JButton book, article, periodical, all, exit;
     
     private final BookHandler bookHandler;
     private final ArticlHandler articleHandler;
     private final PeriodicalHandler periodicalHandler;
+    private final AllHandler allHandler;
     private final ExitHandler exitHandler;
     
     public View(){
@@ -46,6 +47,10 @@ public class View extends Menu {
         periodical = new JButton("VIEW PERIODICAL INVENTORY");
         periodicalHandler = new PeriodicalHandler();
         periodical.addActionListener(periodicalHandler);
+        
+        all = new JButton("VIEW PERIODICAL INVENTORY");
+        allHandler = new AllHandler();
+        all.addActionListener(periodicalHandler);
         
         exit = new JButton("RETURN TO MAIN MENU");
         exitHandler = new ExitHandler();
@@ -87,6 +92,14 @@ public class View extends Menu {
         public void actionPerformed(ActionEvent e) {
             myBehaviour = new PrintPeriodicalBehaviour();
             myBehaviour.execute();
+        }
+    }
+    
+    private class AllHandler implements ActionListener{
+
+        public void actionPerformed(ActionEvent e) {
+            //myBehaviour = new PrintAllBehaviour();
+            //myBehaviour.execute();
         }
     }
 

@@ -44,7 +44,7 @@ public class UserInputReader {
                 parameters.year = scanner.nextInt();
                 scanner.nextLine();
                 System.out.println("Number of pages: ");
-                parameters.pages = scanner.nextInt();
+                parameters.pages = scanner.next();
                 scanner.nextLine();
             } catch (InputMismatchException exception) {
                 scanner.nextLine();

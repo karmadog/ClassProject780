@@ -10,6 +10,6 @@ public class AddArticleBehaviour extends LibraryBehaviour {
     }
 
     public void execute() {
-	new AddArticle();
+	AddArticle.AddFactory();
     }
 }

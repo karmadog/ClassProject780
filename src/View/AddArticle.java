@@ -21,9 +21,13 @@ import javax.swing.SwingConstants;
 
 /**
  *
- * @author karma
+ * @author karma & Nimisha
  */
 public class AddArticle extends Menu {
+
+    public static AddArticle AddFactory() {
+        return new AddArticle();
+    }
     
     private JLabel titleLabel, authorLabel, journalLabel, pagesLabel, volumeLabel, yearLabel;
     
@@ -34,7 +38,7 @@ public class AddArticle extends Menu {
     private final AddHandler addHandler;
     private final ExitHandler exitHandler;
     
-    public AddArticle(){
+    private AddArticle(){
         
         titleLabel = new JLabel("Title:", SwingConstants.RIGHT);
         authorLabel = new JLabel("Author:", SwingConstants.RIGHT);

@@ -15,6 +15,76 @@ import javax.swing.JButton;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class Add extends Menu {
+
+    /**
+     * @return the book
+     */
+    public JButton getBook() {
+        return book;
+    }
+
+    /**
+     * @return the article
+     */
+    public JButton getArticle() {
+        return article;
+    }
+
+    /**
+     * @return the periodical
+     */
+    public JButton getPeriodical() {
+        return periodical;
+    }
+
+    /**
+     * @return the file
+     */
+    public JButton getFile() {
+        return file;
+    }
+
+    /**
+     * @return the exit
+     */
+    public JButton getExit() {
+        return exit;
+    }
+
+    /**
+     * @return the bookHandler
+     */
+    public BookHandler getBookHandler() {
+        return bookHandler;
+    }
+
+    /**
+     * @return the articleHandler
+     */
+    public ArticlHandler getArticleHandler() {
+        return articleHandler;
+    }
+
+    /**
+     * @return the periodicalHandler
+     */
+    public PeriodicalHandler getPeriodicalHandler() {
+        return periodicalHandler;
+    }
+
+    /**
+     * @return the fileHandler
+     */
+    public FileHandler getFileHandler() {
+        return fileHandler;
+    }
+
+    /**
+     * @return the exitHandler
+     */
+    public ExitHandler getExitHandler() {
+        return exitHandler;
+    }
     
     private final JButton book, article, periodical, file, exit;
     

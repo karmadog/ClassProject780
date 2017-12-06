@@ -9,8 +9,8 @@ import utils.LibraryFileManager;
 
 public class Library implements Serializable {
 	private static final long serialVersionUID = 7346680215932771853L;
-	private final Map<String, Publication> publications;
-	private final Map<String, LibraryUser> users;
+	private Map<String, Publication> publications;
+	private Map<String, LibraryUser> users;
 	
 	private static Library instance;
 	private static LibraryFileManager fileManager;
@@ -28,7 +28,6 @@ public class Library implements Serializable {
 	}
 	
 	public static Library getInstanceFromSaveFile(){
-		public static Library getInstanceFromSaveFile(){
 		if(instance == null){
 			if(fileManager == null)
 				fileManager = LibraryFileManager.getInstance();
@@ -38,7 +37,10 @@ public class Library implements Serializable {
 			} catch (FileNotFoundException e) {
 				instance = getInstance();
 				System.out.println("New library database created.");
-			} catch (ClassNotFoundException | IOException e) {
+			} catch (ClassNotFoundException e) {
+				instance = getInstance();
+				System.out.println("New library database created.");
+			} catch (IOException e) {
 				instance = getInstance();
 				System.out.println("New library database created.");
 			}
@@ -72,18 +74,14 @@ public class Library implements Serializable {
         	publications.remove(pub.getTitle());
         }
     }
-	 @Override
-        public String toString(){
+	
+        @Override
+	public String toString(){
 		StringBuilder builder = new StringBuilder();
-                publications.values().stream().map((p) -> {
-                    builder.append(p);
-                return p;
-            }).forEachOrdered(new Consumer<Publication>() {
-                    @Override
-                    public void accept(Publication _item) {
-                        builder.append("\n");
-                    }
-                });
+        for(Publication p: publications.values()) {
+            builder.append(p);
+            builder.append("\n");
+        }
         return builder.toString();
         }
 	

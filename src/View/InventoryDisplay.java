@@ -23,6 +23,12 @@ public abstract class InventoryDisplay extends Menu{
     	.sorted((a,b) -> a.getLastName().compareTo(b.getLastName()))
     	.forEach(System.out::println);
     }
+    
+      /**
+ - * This class extends from OutputStream to redirect output to a JTextArrea
+ - * @author www.codejava.net
+ - *
+ - */
     protected class CustomOutputStream extends OutputStream {
         private final JTextArea textArea;
      

@@ -50,7 +50,7 @@ public class View extends Menu {
         
         all = new JButton("VIEW ALL INVENTORY");
         allHandler = new AllHandler();
-        all.addActionListener(periodicalHandler);
+        all.addActionListener(allHandler);
         
         exit = new JButton("RETURN TO MAIN MENU");
         exitHandler = new ExitHandler();

@@ -5,12 +5,13 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 import utils.LibraryFileManager;
 
 public class Library implements Serializable {
 	private static final long serialVersionUID = 7346680215932771853L;
-	private Map<String, Publication> publications;
-	private Map<String, LibraryUser> users;
+	private final Map<String, Publication> publications;
+	private final Map<String, LibraryUser> users;
 	
 	private static Library instance;
 	private static LibraryFileManager fileManager;
@@ -37,10 +38,7 @@ public class Library implements Serializable {
 			} catch (FileNotFoundException e) {
 				instance = getInstance();
 				System.out.println("New library database created.");
-			} catch (ClassNotFoundException e) {
-				instance = getInstance();
-				System.out.println("New library database created.");
-			} catch (IOException e) {
+			} catch (ClassNotFoundException | IOException e) {
 				instance = getInstance();
 				System.out.println("New library database created.");
 			}
@@ -74,14 +72,18 @@ public class Library implements Serializable {
         	publications.remove(pub.getTitle());
         }
     }
-	
-        @Override
-	public String toString(){
+	 @Override
+        public String toString(){
 		StringBuilder builder = new StringBuilder();
-        for(Publication p: publications.values()) {
-            builder.append(p);
-            builder.append("\n");
-        }
+                publications.values().stream().map((p) -> {
+                    builder.append(p);
+                return p;
+            }).forEachOrdered(new Consumer<Publication>() {
+                    @Override
+                    public void accept(Publication _item) {
+                        builder.append("\n");
+                    }
+                });
         return builder.toString();
         }
 	

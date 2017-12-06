@@ -48,7 +48,7 @@ public class View extends Menu {
         periodicalHandler = new PeriodicalHandler();
         periodical.addActionListener(periodicalHandler);
         
-        all = new JButton("VIEW PERIODICAL INVENTORY");
+        all = new JButton("VIEW ALL INVENTORY");
         allHandler = new AllHandler();
         all.addActionListener(periodicalHandler);
         
@@ -57,7 +57,7 @@ public class View extends Menu {
         exit.addActionListener(exitHandler);
         
         Container pane = getContentPane();
-        pane.setLayout(new GridLayout(4,1));
+        pane.setLayout(new GridLayout(5,1));
         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setSize(screenSize.width, screenSize.height);
@@ -65,6 +65,7 @@ public class View extends Menu {
         add(book);
         add(article);
         add(periodical);
+        add(all);
         add(exit);
         
         setVisible(true);

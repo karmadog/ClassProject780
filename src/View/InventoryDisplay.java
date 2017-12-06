@@ -13,7 +13,8 @@ public abstract class InventoryDisplay extends Menu{
     	long countPublications = library.getPublications().values().stream()
     			.filter(cl::isInstance).sorted(new AlphabeticalComparator())
     			.peek(System.out::println).count();
-    	if(countPublications == 0) {
+    	if(countPublications == 0) 
+        {
     		System.out.println("No type publication was found in the library: " + cl.getSimpleName());
     	}
     }
@@ -23,12 +24,16 @@ public abstract class InventoryDisplay extends Menu{
     	.sorted((a,b) -> a.getLastName().compareTo(b.getLastName()))
     	.forEach(System.out::println);
     }
+<<<<<<< HEAD
     
       /**
  - * This class extends from OutputStream to redirect output to a JTextArrea
  - * @author www.codejava.net
  - *
  - */
+=======
+
+>>>>>>> 3a261f967cf3b901c994b46d47740a477478c373
     protected class CustomOutputStream extends OutputStream {
         private final JTextArea textArea;
      
@@ -38,7 +43,7 @@ public abstract class InventoryDisplay extends Menu{
      
         @Override
         public void write(int b) throws IOException {
-        
+
             textArea.append(String.valueOf((char)b));
         
             textArea.setCaretPosition(textArea.getDocument().getLength());

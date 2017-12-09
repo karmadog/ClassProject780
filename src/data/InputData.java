@@ -2,10 +2,6 @@
 package data;
 
 
-
-/**
- *Original code by Michelle Thomas
- */
 public class InputData {
     public String title;
     public String publisher;

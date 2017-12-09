@@ -6,10 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author karma
- */
+
 public abstract class Display extends Menu{
 
     
@@ -28,10 +25,9 @@ public abstract class Display extends Menu{
     	.forEach(System.out::println);
     }
     
-     /**
+ /** I found this code online and used it to redirect output from standard out to the scroll pane:
  * This class extends from OutputStream to redirect output to a JTextArrea
  * @author www.codejava.net
- *
  */
     protected class CustomOutputStream extends OutputStream {
         private final JTextArea textArea;

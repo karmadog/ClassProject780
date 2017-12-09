@@ -15,10 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-/**
- *
- * @author karma
- */
+
 public class AddBook extends Menu {
     
     private JLabel titleLabel, authorLabel, publisherLabel, pagesLabel, isbnLabel, yearLabel, monthLabel, dayLabel;

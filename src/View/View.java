@@ -6,6 +6,7 @@
 package View;
 
 import LibraryActions.LibraryBehaviour;
+import LibraryActions.PrintAllBehaviour;
 import LibraryActions.PrintArticleBehaviour;
 import LibraryActions.PrintBookBehaviour;
 import LibraryActions.PrintPeriodicalBehaviour;
@@ -99,8 +100,8 @@ public class View extends Menu {
     private class AllHandler implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
-            //myBehaviour = new PrintAllBehaviour();
-            //myBehaviour.execute();
+            myBehaviour = new PrintAllBehaviour();
+            myBehaviour.execute();
         }
     }
 

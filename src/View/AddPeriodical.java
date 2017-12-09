@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package View;
 
 import Factories.PeriodicalFactory;
@@ -19,10 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-/**
- *
- * @author karma
- */
+
 public class AddPeriodical extends Menu {
     
     private JLabel titleLabel, languageLabel, publisherLabel, yearLabel, monthLabel, dayLabel;
